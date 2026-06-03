@@ -18,14 +18,170 @@
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+
+  <style>
+    :root {
+      --pink-bg: #F8BBD0;
+      --pink-card: rgba(255, 255, 255, 0.55);
+      --pink-dark: #880E4F;
+      --purple: #4A148C;
+      --button-grad: linear-gradient(135deg, #EC407A, #AB47BC);
+      --soft-border: rgba(255, 255, 255, 0.7);
+    }
+
+    body {
+      font-family: "Google Sans", "Noto Sans", sans-serif;
+      background: var(--pink-bg);
+      color: #2b1634;
+    }
+
+    .hero {
+      background: var(--pink-bg);
+    }
+
+    .publication-title {
+      color: var(--purple);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .publication-authors {
+      color: var(--pink-dark);
+      margin-top: 0.5rem;
+    }
+
+    .author-block {
+      margin: 0 0.35rem;
+    }
+
+    .button.is-dark {
+      background: var(--button-grad);
+      border: none;
+      color: white;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .button.is-dark:hover {
+      color: white;
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .section-card {
+      background: var(--pink-card);
+      border: 1px solid var(--soft-border);
+      border-radius: 24px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(136, 14, 79, 0.08);
+    }
+
+    .title {
+      color: var(--purple);
+    }
+
+    .subtitle {
+      color: var(--pink-dark);
+      font-weight: 500;
+    }
+
+    .media-placeholder {
+      background: #111;
+      color: white;
+      border-radius: 24px;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 3px solid white;
+      overflow: hidden;
+      padding: 2rem;
+    }
+
+    .media-placeholder.light {
+      background: rgba(255, 255, 255, 0.45);
+      color: var(--pink-dark);
+      border: 2px dashed rgba(136, 14, 79, 0.35);
+    }
+
+    .placeholder-label {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.55);
+      border-radius: 20px;
+      padding: 1.5rem;
+      height: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .tag-pill {
+      display: inline-block;
+      background: var(--button-grad);
+      color: white;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      margin: 0.25rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .system-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .flow-box {
+      background: white;
+      color: var(--pink-dark);
+      border-radius: 18px;
+      padding: 1rem 1.2rem;
+      font-weight: 700;
+      min-width: 170px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(136, 14, 79, 0.08);
+    }
+
+    .flow-arrow {
+      color: var(--purple);
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .footer {
+      background: rgba(255, 255, 255, 0.45);
+      color: var(--pink-dark);
+    }
+
+    .footer a {
+      color: var(--purple);
+    }
+
+    @media (max-width: 768px) {
+      .publication-title {
+        font-size: 2rem !important;
+      }
+
+      .section-card {
+        padding: 1.25rem;
+      }
+
+      .flow-arrow {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -41,15 +197,9 @@
           </h1>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              Student One<sup>1</sup>,
-            </span>
-            <span class="author-block">
-              Student Two<sup>1</sup>,
-            </span>
-            <span class="author-block">
-              Student Three<sup>1</sup>
-            </span>
+            <span class="author-block">Student One<sup>1</sup>,</span>
+            <span class="author-block">Student Two<sup>1</sup>,</span>
+            <span class="author-block">Student Three<sup>1</sup></span>
           </div>
 
           <div class="is-size-5 publication-authors">
@@ -59,7 +209,6 @@
           <div class="column has-text-centered">
             <div class="publication-links">
 
-              <!-- Video Link. -->
               <span class="link-block">
                 <a href="https://www.youtube.com/"
                    class="external-link button is-normal is-rounded is-dark">
@@ -70,7 +219,6 @@
                 </a>
               </span>
 
-              <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://github.com/"
                    class="external-link button is-normal is-rounded is-dark">
@@ -95,12 +243,21 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
 
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
+      <div class="media-placeholder">
+        <div>
+          <div class="placeholder-label">Main Demo Video Placeholder</div>
+          <p>Add your final project demo video here.</p>
+          <p>Example file path: <code>./static/videos/demo.mp4</code></p>
+        </div>
+      </div>
 
-      <h2 class="subtitle has-text-centered">
+      <!-- Replace the placeholder above with this when your video is ready:
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/demo.mp4" type="video/mp4">
+      </video>
+      -->
+
+      <h2 class="subtitle has-text-centered mt-5">
         A gesture-controlled driving system using hand movement recognition,
         computer vision, ROS2 communication, and a simulated car environment.
       </h2>
@@ -113,48 +270,67 @@
 <section class="section">
   <div class="container is-max-desktop">
 
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+    <div class="section-card">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
 
-        <h2 class="title is-3">Project Overview</h2>
+          <h2 class="title is-3">Project Overview</h2>
 
-        <div class="content has-text-justified">
-          <p>
-            This project demonstrates a hand movement car control system developed for
-            41118 AI in Robotics. The system uses a webcam-based hand gesture recognition
-            node to classify user gestures and convert them into driving commands.
-          </p>
+          <div class="content has-text-justified">
+            <p>
+              This project demonstrates a hand movement car control system developed for
+              41118 AI in Robotics. The system uses webcam-based hand gesture recognition
+              to classify user gestures and convert them into driving commands.
+            </p>
 
-          <p>
-            The recognised gestures are published through ROS2 topics and used to control
-            a simulated driving environment. A web-based GUI displays the live hand tracking
-            feed, driving status, and simulated car view to help visualise the overall system.
-          </p>
+            <p>
+              Recognised gestures are published through ROS2 topics and used to control
+              a simulated driving environment. A web-based GUI displays the live hand tracking
+              feed, driving status, current command, and simulated car view.
+            </p>
 
-          <p>
-            The project combines computer vision, machine learning, ROS2 communication,
-            simulation, and user interface development into one integrated robotics system.
-          </p>
+            <p>
+              The project combines computer vision, machine learning, ROS2 communication,
+              simulation, and user interface development into one integrated robotics system.
+            </p>
+          </div>
+
         </div>
-
       </div>
     </div>
 
 
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+    <div class="section-card">
+      <h2 class="title is-3 has-text-centered">System Architecture</h2>
 
-        <h2 class="title is-3">Video</h2>
-
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/"
-                  frameborder="0"
-                  allow="autoplay; encrypted-media"
-                  allowfullscreen>
-          </iframe>
-        </div>
-
+      <div class="system-flow mt-5">
+        <div class="flow-box">Webcam Input</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">Hand Gesture Recognition</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">ROS2 Topics</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">Driving Environment</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">GUI Dashboard</div>
       </div>
+    </div>
+
+
+    <div class="section-card">
+      <h2 class="title is-3 has-text-centered">Demonstration Video</h2>
+
+      <div class="publication-video">
+        <iframe src="https://www.youtube.com/embed/"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+        </iframe>
+      </div>
+
+      <p class="has-text-centered mt-4">
+        Replace the embedded link above with the final YouTube demo link.
+      </p>
     </div>
 
   </div>
@@ -167,53 +343,129 @@
     <div class="columns is-centered">
 
       <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Hand Gesture Recognition</h2>
+        <div class="feature-card">
+          <h2 class="title is-4">Hand Gesture Recognition</h2>
           <p>
-            The hand gesture recognition subsystem uses webcam input and landmark detection
-            to identify user hand poses. These gestures are converted into commands such as
+            The gesture recognition subsystem uses webcam input and hand landmark detection
+            to classify hand poses. These gestures are converted into commands such as
             moving forward, turning, stopping, or selecting a target block.
           </p>
+
+          <div class="media-placeholder light mt-4">
+            <div>
+              <div class="placeholder-label">Gesture Debug Image Placeholder</div>
+              <p>Add screenshot of hand landmark tracking here.</p>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Driving Simulation</h2>
+        <div class="feature-card">
+          <h2 class="title is-4">Driving Simulation</h2>
           <p>
             The driving subsystem receives gesture commands and applies them to a simulated
             car environment. The system allows the car to respond to recognised hand movements
-            and move toward selected targets.
+            and move toward selected coloured targets.
           </p>
+
+          <div class="media-placeholder light mt-4">
+            <div>
+              <div class="placeholder-label">Car Simulation Image Placeholder</div>
+              <p>Add screenshot of the simulated car environment here.</p>
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
 
-    <div class="columns is-centered">
+
+    <div class="columns is-centered mt-4">
 
       <div class="column">
-        <div class="content">
-          <h2 class="title is-3">ROS2 Integration</h2>
+        <div class="feature-card">
+          <h2 class="title is-4">ROS2 Integration</h2>
           <p>
             ROS2 topics are used to connect the gesture recognition node, driving environment,
             and GUI. This modular structure allows each subsystem to run independently while
-            still communicating through published messages.
+            communicating through published messages.
           </p>
+
+          <div class="content mt-4">
+            <p><strong>Example topics:</strong></p>
+            <ul>
+              <li><code>/gesture/name</code></li>
+              <li><code>/gesture/command</code></li>
+              <li><code>/gesture/debug_image</code></li>
+              <li><code>/driving/status</code></li>
+              <li><code>/driving/debug_image</code></li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <div class="column">
-        <div class="content">
-          <h2 class="title is-3">GUI Dashboard</h2>
+        <div class="feature-card">
+          <h2 class="title is-4">GUI Dashboard</h2>
           <p>
             The GUI provides a visual dashboard for the project. It displays the live gesture
             debug feed, the driving environment view, and the current command/status information
             received from the ROS2 system.
           </p>
+
+          <div class="media-placeholder light mt-4">
+            <div>
+              <div class="placeholder-label">GUI Screenshot Placeholder</div>
+              <p>Add screenshot of the pink dashboard interface here.</p>
+            </div>
+          </div>
         </div>
       </div>
 
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="section-card">
+      <h2 class="title is-3 has-text-centered">Technologies Used</h2>
+
+      <div class="has-text-centered mt-4">
+        <span class="tag-pill">ROS2 Humble</span>
+        <span class="tag-pill">Python</span>
+        <span class="tag-pill">OpenCV</span>
+        <span class="tag-pill">MediaPipe</span>
+        <span class="tag-pill">Machine Learning</span>
+        <span class="tag-pill">PyBullet</span>
+        <span class="tag-pill">Flask</span>
+        <span class="tag-pill">Socket.IO</span>
+        <span class="tag-pill">HTML/CSS/JavaScript</span>
+      </div>
+    </div>
+
+
+    <div class="section-card">
+      <h2 class="title is-3 has-text-centered">Final Outcome</h2>
+
+      <div class="content has-text-justified">
+        <p>
+          The final system allows a user to control a simulated car using recognised hand
+          gestures. The gesture recognition node identifies the hand pose, publishes the
+          matching command, and the driving environment responds by updating the car's
+          movement or target.
+        </p>
+
+        <p>
+          The GUI acts as the visual interface for the system, showing both the hand tracking
+          debug view and the simulated driving environment. This makes it easier to understand
+          the relationship between user input, ROS2 messages, and vehicle behaviour.
+        </p>
+      </div>
     </div>
 
   </div>
@@ -234,6 +486,9 @@
         <div class="content has-text-centered">
           <p>
             41118 AI in Robotics - Hand Movement Car Control.
+          </p>
+          <p>
+            Portfolio website adapted from the original project-page template.
           </p>
         </div>
       </div>
