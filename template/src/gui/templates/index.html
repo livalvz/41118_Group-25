@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ROS2 AI Driving Dashboard</title>
+ 
+    <link href="https://fonts.cdnfonts.com/css/commando" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+ 
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+ 
+<body>
+ 
+<div class="app-container">
+ 
+    <div class="header">
+        <div class="logo">AI DRIVE CONTROL (ROS2)</div>
+    </div>
+ 
+    <div class="main-layout">
+ 
+        <div class="left-panel">
+ 
+            <div class="car-viewer-card">
+                <img id="car-viewer" class="car-viewer" src="" alt="Driving environment view">
+            </div>
+ 
+            <div class="status-card">
+                <div class="status-title">SYSTEM STATUS</div>
+                <div id="status-text">Waiting for ROS2...</div>
+            </div>
+ 
+        </div>
+ 
+        <div class="right-panel">
+ 
+            <button class="theme-btn">THEME</button>
+ 
+            <div class="control-card">
+                <button id="toggle-btn" class="toggle-btn">LIVE</button>
+                <button id="camera-btn" class="camera-btn disabled">📷</button>
+            </div>
+ 
+            <div class="camera-card">
+                <img id="webcam" src="" alt="Live gesture feed">
+            </div>
+ 
+        </div>
+ 
+    </div>
+ 
+</div>
+ 
+ 
+<script src="/static/script.js"></script>
+ 
+</body>
+</html>

@@ -1,0 +1,264 @@
+* {
+    box-sizing: border-box;
+}
+ 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Commando", sans-serif;
+    background: #F8BBD0;
+    height: 100vh;
+    overflow: hidden;
+}
+ 
+/* root app container */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding-top: env(safe-area-inset-top);
+}
+ 
+/* header */
+.header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    flex-shrink: 0;
+    background: transparent;
+    z-index: 10;
+}
+ 
+.logo {
+    font-size: 28px;
+    color: #4A148C;
+}
+ 
+/* main layout */
+.main-layout {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    min-height: 0;
+}
+ 
+/* left panel*/
+.left-panel {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 0;
+}
+ 
+/* Car viewer card */
+.car-viewer-card {
+    flex: 1;
+    min-height: 300px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 25px;
+    background: black;
+}
+ 
+.car-viewer {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+ 
+/* status panel */
+.status-card {
+    height: 120px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 15px;
+}
+ 
+.status-title {
+    font-size: 16px;
+    color: #6A1B9A;
+}
+ 
+#status-text {
+    font-size: 26px;
+    color: #880E4F;
+}
+ 
+/* right panel*/
+.right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 0;
+}
+ 
+/* Theme button */
+.theme-btn {
+    height: 60px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    color: white;
+    background: linear-gradient(135deg, #EC407A, #AB47BC);
+    cursor: pointer;
+}
+ 
+/* Toggle and camera upload row */
+.control-card {
+    display: flex;
+    height: 60px;
+    flex-shrink: 0;
+    gap: 10px;
+}
+ 
+.toggle-btn {
+    flex: 2;
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    color: white;
+    background: linear-gradient(135deg, #EC407A, #AB47BC);
+    cursor: pointer;
+}
+ 
+.camera-btn {
+    flex: 1;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+}
+ 
+.camera-btn.disabled {
+    opacity: 0.25;
+    pointer-events: none;
+}
+ 
+/* live gesture camera feed*/
+.camera-card {
+    flex: 1;
+    min-height: 300px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    background: black;
+    border: 2px solid white;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ 
+/* Waiting text behind image */
+.camera-card::before {
+    content: "Waiting for live hand gesture feed...";
+    position: absolute;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    z-index: 0;
+}
+ 
+/* Image received from ROS2 /gesture/debug_image */
+#webcam {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    background: black;
+    position: relative;
+    z-index: 1;
+}
+ 
+/* If image src is empty, keep black background */
+#webcam[src=""] {
+    background: black;
+}
+ 
+/* small screen */
+@media (max-width: 900px) {
+    .main-layout {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+ 
+    body {
+        overflow: auto;
+    }
+ 
+    .right-panel {
+        min-height: 500px;
+    }
+ 
+    .camera-card {
+        min-height: 350px;
+    }
+}
+ 
+/*alternative theme*/
+body.serious-theme {
+    background: #101820;
+}
+ 
+/* Header */
+body.serious-theme .logo {
+    color: #EAEAEA;
+}
+ 
+/* Cards */
+body.serious-theme .status-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+ 
+body.serious-theme .status-title {
+    color: #9FB3C8;
+}
+ 
+body.serious-theme #status-text {
+    color: #F5F5F5;
+}
+ 
+/* Main viewer */
+body.serious-theme .car-viewer-card {
+    background: #050505;
+    border: 2px solid #2F3A45;
+}
+ 
+/* Gesture camera viewer */
+body.serious-theme .camera-card {
+    background: #050505;
+    border: 2px solid #2F3A45;
+}
+ 
+body.serious-theme .camera-card::before {
+    color: #DDE6ED;
+}
+ 
+/* Buttons */
+body.serious-theme .theme-btn,
+body.serious-theme .toggle-btn {
+    background: linear-gradient(135deg, #1F2933, #3B4A5A);
+    color: #F5F5F5;
+}
+ 
+body.serious-theme .camera-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: #F5F5F5;
+}
+ 
+/* Disabled camera button */
+body.serious-theme .camera-btn.disabled {
+    opacity: 0.25;
+}
